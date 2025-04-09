@@ -3,3 +3,7 @@ node_modules
 src
 tsconfig.json
 .github
+.gitignore
+.npmrc
+package-lock.json
+pnpm-lock.yaml
