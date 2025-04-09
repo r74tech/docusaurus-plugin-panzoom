@@ -1,41 +1,56 @@
-# Website
+# Docusaurus Plugin PanZoom Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This is the documentation website for the [@r74tech/docusaurus-plugin-panzoom](https://github.com/r74tech/docusaurus-plugin-panzoom) package. The site is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20.0 or higher
+- pnpm (recommended) or npm
 
 ### Installation
 
-```
-$ yarn
+```bash
+# Install dependencies
+pnpm install
 ```
 
 ### Local Development
 
-```
-$ yarn start
-```
+To start the local development server:
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
+```bash
+# Start the development server
+pnpm start
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
 
-### Deployment
+### Building the Documentation
 
-Using SSH:
+To build the static website:
 
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
+```bash
+# Build the static site
+pnpm build
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+This command generates static content in the `build` directory, which can be served using any static content hosting service.
+
+## Project Structure
+
+- `/docs` - Documentation content in Markdown format
+- `/static` - Static assets like images and favicon
+
+## Deployment
+
+The documentation is automatically deployed to GitHub Pages using GitHub Actions whenever changes are pushed to the main branch.
+
+## Contributing
+
+Contributions to improve the documentation are welcome! Please feel free to submit a pull request.
+
+## License
+
+This documentation is licensed under the same [MIT License](https://github.com/r74tech/docusaurus-plugin-panzoom/blob/main/LICENSE) as the main project.
