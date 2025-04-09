@@ -55,7 +55,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build plugin
-        run: pnpm build
+        run: npx tsc --project tsconfig.json --rootDir src --outDir dist
 
       # Install docs dependencies and build docs
       - name: Install docs dependencies
