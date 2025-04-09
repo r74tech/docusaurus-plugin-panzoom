@@ -11,7 +11,7 @@ import { resolve } from 'path';
  */
 export const PanZoomPlugin: PluginModule = (context, options) => {
     return {
-        name: "docusaurus-plugin-image-zoom",
+        name: "docusaurus-plugin-panzoom",
         getClientModules() {
           return [
             resolve(__dirname, "./PanZoom")
