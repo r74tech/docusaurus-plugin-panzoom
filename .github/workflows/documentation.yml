@@ -22,9 +22,6 @@ jobs:
   build:
     name: Build Documentation
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: docs
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -53,13 +50,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      # Install root project dependencies and build plugin
+      - name: Install plugin dependencies
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build plugin
-        run: cd .. && pnpm build
-        
-      - name: Build website
+        run: pnpm build
+
+      # Install docs dependencies and build docs
+      - name: Install docs dependencies
+        working-directory: docs
+        run: pnpm install --frozen-lockfile
+
+      - name: Build docs website
+        working-directory: docs
         run: pnpm build
 
       - name: Setup Pages
