@@ -1,7 +1,6 @@
 import type { PanzoomOptions } from '@panzoom/panzoom';
 
 export type PanZoomPluginOptions = PanzoomOptions & {
-
   /**
    * A list of selectors to look for elements to enable pan and zoom
    *
@@ -29,7 +28,7 @@ export type PanZoomPluginOptions = PanzoomOptions & {
   /**
    * Add this class to any element within the Panzoom element that you want to exclude from Panzoom handling.
    * That element's children will also be excluded. e.g. links and buttons that should not propagate the click event.
-   * 
+   *
    * default: 'panzoom-exclude'
    */
   excludeClass?: string;
@@ -75,4 +74,4 @@ export type PanZoomPluginOptions = PanzoomOptions & {
    * - false: Disable double-click handling
    */
   doubleClick?: 'reset' | 'zoomIn' | 'zoomOut' | false;
-}
+};

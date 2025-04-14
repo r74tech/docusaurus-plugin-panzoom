@@ -1,23 +1,21 @@
+import { resolve } from 'node:path';
 import type { PluginModule, ThemeConfigValidationContext } from '@docusaurus/types';
-import  { Joi } from "@docusaurus/utils-validation";
-import { PanZoomPluginOptions } from './PanzoomPluginOptions';
-import { resolve } from 'path';
+import { Joi } from '@docusaurus/utils-validation';
+import type { PanZoomPluginOptions } from './PanzoomPluginOptions';
 
 /**
  * Main module for the PanZoom plugin
- * @param context 
- * @param options 
- * @returns 
+ * @param context
+ * @param options
+ * @returns
  */
-export const PanZoomPlugin: PluginModule = (context, options) => {
-    return {
-        name: "docusaurus-plugin-panzoom",
-        getClientModules() {
-          return [
-            resolve(__dirname, "./PanZoom")
-          ]
-        }
-    }
+export const PanZoomPlugin: PluginModule = (_context, _options) => {
+  return {
+    name: 'docusaurus-plugin-panzoom',
+    getClientModules() {
+      return [resolve(__dirname, './PanZoom')];
+    },
+  };
 };
 
 /**
@@ -40,8 +38,8 @@ const panZoomValidator = Joi.object({
       Joi.string().valid('reset', 'zoomIn', 'zoomOut'),
       Joi.boolean().valid(false)
     ),
-  })
-})
+  }),
+});
 
 /**
  * Add a validation for the theme configuration
@@ -49,7 +47,7 @@ const panZoomValidator = Joi.object({
  * @returns
  */
 export function validatedThemeConfig(data: ThemeConfigValidationContext<PanZoomPluginOptions>) {
-    const {themeConfig, validate} = data;
-    const validated = validate(panZoomValidator, themeConfig);
-    return validated;
+  const { themeConfig, validate } = data;
+  const validated = validate(panZoomValidator, themeConfig);
+  return validated;
 }

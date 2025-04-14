@@ -4,11 +4,7 @@
   "description": "A plugin to enable the panzoom component on SVG and other elements",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "keywords": [
-    "Docusaurus",
-    "Plugin",
-    "PanZoom"
-  ],
+  "keywords": ["Docusaurus", "Plugin", "PanZoom"],
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +14,7 @@
     "build": "tsc",
     "prepublishOnly": "npm run build",
     "lint": "biome check .",
-    "lint:fix": "biome check --apply .",
+    "lint:fix": "biome check --write .",
     "format": "biome format --write ."
   },
   "dependencies": {
@@ -57,11 +53,7 @@
       [
         "@semantic-release/git",
         {
-          "assets": [
-            "CHANGELOG.md",
-            "package.json",
-            "package-lock.json"
-          ],
+          "assets": ["CHANGELOG.md", "package.json", "package-lock.json"],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ]
