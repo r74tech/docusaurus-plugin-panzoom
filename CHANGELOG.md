@@ -1,3 +1,11 @@
+# [2.1.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.0.0...v2.1.0) (2025-04-14)
+
+
+### Features
+
+* add Docusaurus documentation and CI workflows ([5d0ed86](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/5d0ed86e2b5447c533fb4b15c220d32f176c9528))
+* add support for excludeClass option ([246d378](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/246d378f33c4f24c5a2cde22ba55a14daa65b217))
+
 # [2.0.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v1.0.1...v2.0.0) (2025-04-09)
 
 
