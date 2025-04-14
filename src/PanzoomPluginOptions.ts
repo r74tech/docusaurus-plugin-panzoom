@@ -25,4 +25,12 @@ export type PanZoomPluginOptions = PanzoomOptions & {
    * The default is 1000
    */
   timeout?: number;
+  
+  /**
+   * Add this class to any element within the Panzoom element that you want to exclude from Panzoom handling.
+   * That element's children will also be excluded. e.g. links and buttons that should not propagate the click event.
+   * 
+   * default: 'panzoom-exclude'
+   */
+  excludeClass?: string;
 }

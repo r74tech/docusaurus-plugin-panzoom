@@ -44,6 +44,11 @@ themeConfig: {
     // Default: 1000
     timeout: 1000,
     
+    // Add this class to any element within the Panzoom element that you want to exclude from Panzoom handling.
+    // That element's children will also be excluded. e.g. links and buttons that should not propagate the click event.
+    // Default: 'panzoom-exclude'
+    excludeClass: 'panzoom-exclude',
+    
     // You can also pass any options supported by @panzoom/panzoom
     // See: https://github.com/timmywil/panzoom for available options
   }
