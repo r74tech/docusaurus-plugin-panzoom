@@ -28,6 +28,7 @@ const panZoomValidator = Joi.object({
     selectors: Joi.array<string>(),
     wrap: Joi.boolean(),
     timeout: Joi.number(),
+    excludeClass: Joi.string(),
   })
 })
 
