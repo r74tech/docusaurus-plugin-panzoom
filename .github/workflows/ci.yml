@@ -1,8 +1,7 @@
 name: Docusaurus PanZoom Plugin CI
+
 on:
-  pull_request:
-    types:
-      - opened
+  push:
     branches:
       - main
   workflow_dispatch:
