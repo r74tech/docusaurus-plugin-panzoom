@@ -49,6 +49,28 @@ themeConfig: {
     // Default: 'panzoom-exclude'
     excludeClass: 'panzoom-exclude',
     
+    // Contain the panning within the parent element.
+    // Possible values: 'inside', 'outside', or false
+    // Default: false
+    contain: 'inside',
+    
+    // Disable panning functionality.
+    // Default: false
+    disablePan: false,
+    
+    // Disable panning in the X direction.
+    // Default: false
+    disableXAxis: false,
+    
+    // Disable panning in the Y direction.
+    // Default: false
+    disableYAxis: false,
+    
+    // Customize the behavior of the double-click action.
+    // Possible values: 'reset', 'zoomIn', 'zoomOut', or false
+    // Default: 'reset'
+    doubleClick: 'reset',
+    
     // You can also pass any options supported by @panzoom/panzoom
     // See: https://github.com/timmywil/panzoom for available options
   }

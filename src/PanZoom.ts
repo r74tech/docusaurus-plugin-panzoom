@@ -5,7 +5,14 @@ import { PanZoomPluginOptions } from "./PanzoomPluginOptions";
 const config = require('@generated/docusaurus.config').default;
 const { themeConfig } = config;
 const { zoom }: { zoom: PanZoomPluginOptions } = themeConfig;
-const { selectors = ['div.mermaid[data-processed="true"]', 'div.docusaurus-mermaid-container', '.drawio'], wrap = true, timeout = 1000, excludeClass = 'panzoom-exclude', ...panZoomConfig } = zoom;
+const {
+  selectors = ['div.mermaid[data-processed="true"]', 'div.docusaurus-mermaid-container', '.drawio'],
+  wrap = true,
+  timeout = 1000,
+  excludeClass = 'panzoom-exclude',
+  doubleClick = 'reset',
+  ...panZoomConfig
+} = zoom;
 
 /**
  * Main work method to zoom the set of elements.  You can pass in global options to the pan zoom component
@@ -18,28 +25,75 @@ const zoomElements = (selectors: string[]) => {
     foundElements.push(...document.querySelectorAll(selector));
   });
   foundElements.forEach((element) => {
+    // Create PanZoom instance with all options
     const instance = panzoom(element as HTMLElement, { excludeClass, ...panZoomConfig });
+
+    // Handle wrapping
     if (wrap) {
       const wrapper = document.createElement('div');
       wrapper.setAttribute('style', "overflow: hidden");
       element.parentElement?.insertBefore(wrapper, element);
       wrapper.appendChild(element);
+
+      // Add wheel event for zoom
       wrapper.addEventListener('wheel', (event) => {
         instance.zoomWithWheel(event);
       });
-      wrapper.addEventListener('dblclick', (event) => {
-        instance.reset();
-      });
-    }
-    if (!wrap) {
+
+      // Handle double-click behavior
+      if (doubleClick !== false) {
+        wrapper.addEventListener('dblclick', (event) => {
+          handleDoubleClick(instance, doubleClick);
+        });
+      }
+    } else {
+      // Add wheel event for zoom
       (element as HTMLElement).addEventListener('wheel', (event) => {
         instance.zoomWithWheel(event);
       });
-      (element as HTMLElement).addEventListener('dblclick', (event) => {
-        instance.reset();
-      });
+
+      // Handle double-click behavior
+      if (doubleClick !== false) {
+        (element as HTMLElement).addEventListener('dblclick', (event) => {
+          handleDoubleClick(instance, doubleClick);
+        });
+      }
     }
+
+    // Add event listeners for panzoom events
+    element.addEventListener('panzoomstart', (event) => {
+      // Event when panzoom starts - can be used for custom handling
+    });
+
+    element.addEventListener('panzoomchange', (event) => {
+      // Event when panzoom changes - can be used for custom handling
+    });
+
+    element.addEventListener('panzoomend', (event) => {
+      // Event when panzoom ends - can be used for custom handling
+    });
   })
+}
+
+/**
+ * Handle different double-click behaviors
+ * @param instance The panzoom instance
+ * @param action The doubleClick action
+ */
+const handleDoubleClick = (instance: PanzoomObject, action: 'reset' | 'zoomIn' | 'zoomOut') => {
+  switch (action) {
+    case 'reset':
+      instance.reset();
+      break;
+    case 'zoomIn':
+      const currentScale = instance.getScale();
+      instance.zoom(currentScale * 1.5, { animate: true });
+      break;
+    case 'zoomOut':
+      const currentScale2 = instance.getScale();
+      instance.zoom(currentScale2 / 1.5, { animate: true });
+      break;
+  }
 }
 
 /**
