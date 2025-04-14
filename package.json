@@ -1,6 +1,6 @@
 {
   "name": "@r74tech/docusaurus-plugin-panzoom",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A plugin to enable the panzoom component on SVG and other elements",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,13 +16,17 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
+    "format": "biome format --write ."
   },
   "dependencies": {
     "@docusaurus/utils-validation": "^3.7.0",
     "@panzoom/panzoom": "^4.6.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@docusaurus/types": "^3.7.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^9.0.2",
