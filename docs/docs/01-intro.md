@@ -13,11 +13,12 @@ This plugin implements the excellent [@panzoom/panzoom](https://www.npmjs.com/pa
 
 ## Key Features
 
-- Adds pan and zoom functionality to images and SVG elements
-- Works with mermaid.js generated diagrams
+- Adds pan and zoom functionality to images, SVG elements, or any other HTML elements in Docusaurus
+- Works with [Mermaid](https://mermaid-js.github.io/mermaid/) generated diagrams
 - Customizable selectors to target specific elements
 - Option to wrap elements to contain them within their original container
 - Wheel zoom and double-click reset functionality
+- Toolbar for zooming in and out and resetting the view
 
 ## Note
 
