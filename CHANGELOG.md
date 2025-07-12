@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.1.0...v2.2.0) (2025-07-12)
+
+
+### Features
+
+* add Prettier and ESLint to documentation website ([33dd381](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/33dd381ae478260cade8f15e8c69670c75628905))
+
 # [2.1.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.0.0...v2.1.0) (2025-04-14)
 
 
