@@ -1,6 +1,6 @@
 ---
 title: Mermaid
-description: Pan and zoon Mermaid diagrams
+description: Pan and zoom Mermaid diagrams
 ---
 
 # Mermaid Diagrams Example

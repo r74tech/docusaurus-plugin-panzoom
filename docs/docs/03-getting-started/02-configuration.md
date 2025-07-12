@@ -37,7 +37,7 @@ module.exports = {
 
 You can also pass any options supported by [@panzoom/panzoom](https://www.npmjs.com/package/@panzoom/panzoom) to the `zoom` configuration.
 
-For example, if you want to change the cursor style when hovering over the pan and zoon elements, you can do so like this:
+For example, if you want to change the cursor style when hovering over the pan and zoom elements, you can do so like this:
 
 ```js title="docusaurus.config.js"
 module.exports = {
@@ -67,7 +67,7 @@ By default, pan and zoom functionality is added to the elements matching the fol
 
 ### Adding Custom Selectors
 
-Let's say you want to add pan and zoon functionality to specific elements in your Docusaurus site, such as images or div 
+Let's say you want to add pan and zoom functionality to specific elements in your Docusaurus site, such as images or div 
 element, you can define a CSS class in the `selectors` array. 
 
 In this example, we will add a custom selector `.panzoom` to enable pan and zoom functionality on elements with that 
