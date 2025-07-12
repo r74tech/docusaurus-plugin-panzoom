@@ -1,10 +1,13 @@
 # Introduction
 
-**docusaurus-plugin-panzoom** is a plugin that adds pan and zoom functionality to images and SVG elements in Docusaurus websites.
+**docusaurus-plugin-panzoom** is a plugin that adds pan and zoom functionality to images and SVG elements in Docusaurus
+websites.
 
 ## Overview
 
-Complex diagrams and charts, especially those generated with [Mermaid](https://mermaid-js.github.io/mermaid/), can be difficult to examine in detail in a browser. This plugin allows users to drag to move (pan) and zoom in or out of diagrams for better visibility.
+Complex diagrams and charts, especially those generated with [Mermaid](https://mermaid-js.github.io/mermaid/), can be
+difficult to examine in detail in a browser. This plugin allows users to drag to move (pan) and zoom in or out of
+diagrams for better visibility.
 
 This plugin implements the excellent [@panzoom/panzoom](https://www.npmjs.com/package/@panzoom/panzoom) library.
 
@@ -18,9 +21,11 @@ This plugin implements the excellent [@panzoom/panzoom](https://www.npmjs.com/pa
 
 ## Note
 
-This package is a fork of [act-org/docusaurus-plugin-panzoom](https://github.com/act-org/docusaurus-plugin-panzoom) under the MIT license. It was forked because the original package was not being actively maintained.
+This package is a fork of [act-org/docusaurus-plugin-panzoom](https://github.com/act-org/docusaurus-plugin-panzoom)
+under the MIT license. It was forked because the original package was not being actively maintained.
 
-If the original package is updated and maintained again, we recommend migrating back to the original package. This fork will continue to be maintained until then.
+If the original package is updated and maintained again, we recommend migrating back to the original package. This fork
+will continue to be maintained until then.
 
 ## License
 
