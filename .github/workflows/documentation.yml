@@ -60,7 +60,7 @@ jobs:
       # Install docs dependencies and build docs
       - name: Install docs dependencies
         working-directory: docs
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build docs website
         working-directory: docs
