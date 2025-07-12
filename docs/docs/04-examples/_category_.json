@@ -1,0 +1,7 @@
+{
+  "label": "Examples",
+  "link": {
+    "type": "generated-index",
+    "description": "This section demonstrates the pan and zoom functionality provided by the plugin. Try dragging to pan, using the mouse wheel to zoom, and double-clicking to reset."
+  }
+}

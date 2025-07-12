@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Docusaurus Plugin PanZoom',
-  tagline: 'Add pan and zoom functionality to images and SVGs in your Docusaurus site',
+  tagline: 'Add pan and zoom functionality to images, SVGs, or any HTML elements in your Docusaurus site',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -41,13 +41,16 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/r74tech/docusaurus-plugin-panzoom/tree/main/docs/',
-          routeBasePath: '/', // Changed from 'docs' to '/' to make docs the main route
+          routeBasePath: '/docs',
         },
         blog: false, // Disable the blog feature
+        theme: {
+          customCss: './src/css/custom.css',
+        },
       } satisfies Preset.Options,
     ],
   ],
-  
+
   plugins: [
     '@r74tech/docusaurus-plugin-panzoom'
   ],
@@ -55,6 +58,7 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
+
     navbar: {
       title: 'Docusaurus Plugin PanZoom',
       logo: {
@@ -69,32 +73,19 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          type: 'doc',
-          docId: 'example/index',
-          position: 'left',
-          label: 'Example',
-        },
-        {
           href: 'https://github.com/r74tech/docusaurus-plugin-panzoom',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
+
     footer: {
       style: 'dark',
       links: [
         {
           title: 'Links',
           items: [
-            {
-              label: 'Docs',
-              to: '/',
-            },
-            {
-              label: 'Example',
-              to: '/example/',
-            },
             {
               label: 'GitHub',
               href: 'https://github.com/r74tech/docusaurus-plugin-panzoom',
@@ -105,19 +96,46 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'About',
+          items: [
+            {
+              label: 'Contributing',
+              href: 'https://github.com/r74tech/docusaurus-plugin-panzoom/blob/main/CONTRIBUTING.md',
+            },
+            {
+              label: 'Changelog',
+              href: 'https://github.com/r74tech/docusaurus-plugin-panzoom/blob/main/CHANGELOG.md',
+            },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} r74tech. Built with Docusaurus.`,
     },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+
     zoom: {
-      selectors: ['div.mermaid[data-processed="true"]', 'div.docusaurus-mermaid-container', '.drawio', '.panzoom-example'],
+      selectors: [
+        'div.mermaid[data-processed="true"]:not(.panzoom-exclude *)',
+        'div.docusaurus-mermaid-container:not(.panzoom-exclude *)',
+        '.drawio',
+        '.panzoom-example'
+      ],
       wrap: true,
       timeout: 1000,
+      excludeClass: 'panzoom-exclude',
     },
   } satisfies Preset.ThemeConfig,
+
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: ['@docusaurus/theme-mermaid'],
 };
 
 export default config;
