@@ -41,25 +41,30 @@ export type PanZoomPluginOptions = PanzoomOptions & {
   excludeClass?: string;
 
   /**
-   * Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset.
-   *
-   * default: false
+   * Toolbar options for the Panzoom plugin.
    */
-  toolbarEnabled?: boolean;
+  toolbar?: {
+    /**
+     * Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset.
+     *
+     * default: false
+     */
+    enabled?: boolean;
 
-  /**
-   * The toolbar position (top-right, top-left, bottom-right, bottom-left)
-   *
-   * default: 'top-right'
-   */
-  toolbarPosition?: PanZoomPluginToolbarPosition;
+    /**
+     * The toolbar position (top-right, top-left, bottom-right, bottom-left)
+     *
+     * default: 'top-right'
+     */
+    position?: PanZoomPluginToolbarPosition;
 
-  /**
-   * The toolbar opacity when not hovered (value between 0 and 1)
-   * The toolbar will become fully opaque (opacity: 1) when hovered.
-   *
-   * example: 0.5
-   * default: 0
-   */
-  toolbarOpacity?: number;
+    /**
+     * The toolbar opacity when not hovered (value between 0 and 1)
+     * The toolbar will become fully opaque (opacity: 1) when hovered.
+     *
+     * example: 0.5
+     * default: 0
+     */
+    opacity?: number;
+  };
 };

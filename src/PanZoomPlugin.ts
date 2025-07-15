@@ -30,9 +30,11 @@ const panZoomValidator = Joi.object({
     wrap: Joi.boolean(),
     timeout: Joi.number(),
     excludeClass: Joi.string(),
-    toolbarEnabled: Joi.boolean(),
-    toolbarPosition: Joi.string().valid(...validToolbarPositions),
-    toolbarOpacity: Joi.number().min(0).max(1),
+    toolbar: Joi.object({
+      enabled: Joi.boolean(),
+      position: Joi.string().valid(...validToolbarPositions),
+      opacity: Joi.number().min(0).max(1),
+    }),
   }),
 });
 

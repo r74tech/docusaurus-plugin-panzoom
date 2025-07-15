@@ -14,9 +14,7 @@ const {
   wrap = true,
   timeout = 1000,
   excludeClass = 'panzoom-exclude',
-  toolbarEnabled = false,
-  toolbarPosition = PanZoomPluginToolbarPosition.TopRight,
-  toolbarOpacity = 0,
+  toolbar: { enabled = false, position = PanZoomPluginToolbarPosition.TopRight, opacity = 0 } = {},
   ...panZoomConfig
 } = zoom;
 
@@ -31,7 +29,7 @@ const createToolbar = (container: HTMLElement, instance: PanzoomObject, position
   toolbar.className = `panzoom-toolbar panzoom-toolbar-${position} ${excludeClass}`;
 
   // Apply custom opacity from configuration
-  toolbar.style.opacity = toolbarOpacity.toString();
+  toolbar.style.opacity = opacity.toString();
 
   // Prevent double-click events from bubbling up to the container
   // By default the panzoom library will reset on double click
@@ -102,8 +100,8 @@ const zoomElements = (selectors: string[]) => {
     }
 
     // Add toolbar if enabled
-    if (toolbarEnabled) {
-      createToolbar(container, instance, toolbarPosition);
+    if (enabled) {
+      createToolbar(container, instance, position);
     }
   });
 };

@@ -26,17 +26,20 @@ module.exports = {
       // Default: 1000
       timeout: 1000,
 
-      // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
-      // Default: true
-      toolbarEnabled: false,
+      // The toolbar configuration (optional)
+      toolbar: {
+        // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
+        // Default: true
+        enabled: false,
 
-      // The position of the toolbar (top-right, top-left, bottom-right, bottom-left)
-      // Default: 'top-right'
-      toolbarPosition: 'top-right',
+        // The position of the toolbar (top-right, top-left, bottom-right, bottom-left)
+        // Default: 'top-right'
+        position: 'top-right',
 
-      // The toolbar opacity when the container is not hovered (value between 0 and 1)
-      // Default: 0
-      toolbarOpacity: 0,
+        // The toolbar opacity when the container is not hovered (value between 0 and 1)
+        // Default: 0
+        opacity: 0,
+      },
 
       // You can also pass any options supported by @panzoom/panzoom
       // See: https://github.com/timmywil/panzoom for available options
@@ -83,17 +86,20 @@ module.exports = {
     zoom: {
       // ...
 
-      // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
-      // Default: false
-      toolbarEnabled: true,
+      // The toolbar configuration (optional)
+      toolbar: {
+        // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
+        // Default: true
+        enabled: true,
 
-      // The position of the toolbar (top-right, top-left, bottom-right, bottom-left)
-      // Default: 'top-right'
-      toolbarPosition: 'top-right',
+        // The position of the toolbar (top-right, top-left, bottom-right, bottom-left)
+        // Default: 'top-right'
+        position: 'top-right',
 
-      // The toolbar opacity when not the container is not hovered (value between 0 and 1)
-      // Default: 0
-      toolbarOpacity: 0,
+        // The toolbar opacity when the container is not hovered (value between 0 and 1)
+        // Default: 0
+        opacity: 0,
+      },
     },
   },
   // ...
