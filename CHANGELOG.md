@@ -1,3 +1,11 @@
+# [2.3.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.2.0...v2.3.0) (2025-07-17)
+
+
+### Features
+
+* add toolbar to control zooming (zoom in, zoom out, reset) ([a170e52](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/a170e5253e2bf5b1ddb12bf7b0e648722b053bcb))
+* merge all toolbar props into a single object ([0c32e6c](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/0c32e6c361563ad81517818c99693a9de717f33f))
+
 # [2.2.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.1.0...v2.2.0) (2025-07-12)
 
 
