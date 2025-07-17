@@ -17,7 +17,10 @@ This plugin implements the excellent [@panzoom/panzoom](https://www.npmjs.com/pa
 - Works with [Mermaid](https://mermaid-js.github.io/mermaid/) generated diagrams
 - Customizable selectors to target specific elements
 - Option to wrap elements to contain them within their original container
-- Wheel zoom and double-click reset functionality
+- Option to use mouse wheel or pinch to zoom
+- Option to use shift + mouse wheel or pinch to zoom
+- Option to use double-click to reset the zoom
+- Option to restrict zooming out beyond the original size of the element
 - Toolbar for zooming in and out and resetting the view
 
 ## Note

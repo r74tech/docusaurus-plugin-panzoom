@@ -41,6 +41,41 @@ module.exports = {
         opacity: 0,
       },
 
+      /**
+       * Whether to enable zooming with the mouse wheel.
+       * If true, the user can zoom in and out using the mouse wheel.
+       *
+       * default: true
+       */
+      enableWheelZoom: true,
+
+      /**
+       * Whether to enable zooming with the mouse wheel while holding the shift key.
+       * If true, the user can zoom in and out using the mouse wheel while holding the shift key.
+       *
+       * This option is independent of `enableWheelZoom`. Meaning, even if `enableWheelZoom` is false,
+       * and `enableWheelZoonWithShift` is true, the user can still zoom using shift + mouse whee.
+       * Also, `enableWheelZoom` and `enableWheelZoonWithShift` can be used together.
+       *
+       * default: false
+       */
+      enableWheelZoonWithShift: false,
+
+      /**
+       * Whether to enable double-click to reset zoom.
+       * If true, double-clicking on the panzoom element will reset the zoom level.
+       *
+       * default: true
+       */
+      enableDoubleClickResetZoom: true,
+
+      /**
+       * Whether to restrict zooming out beyond the original size of the element.
+       *
+       * default: false
+       */
+      restrictZoomOutBeyondOrigin: false,
+      
       // You can also pass any options supported by @panzoom/panzoom
       // See: https://github.com/timmywil/panzoom for available options
     },
