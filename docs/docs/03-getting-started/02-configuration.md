@@ -29,7 +29,7 @@ module.exports = {
       // The toolbar configuration (optional)
       toolbar: {
         // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
-        // Default: true
+        // Default: false
         enabled: false,
 
         // The position of the toolbar (top-right, top-left, bottom-right, bottom-left)
@@ -89,7 +89,7 @@ module.exports = {
       // The toolbar configuration (optional)
       toolbar: {
         // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
-        // Default: true
+        // Default: false
         enabled: true,
 
         // The position of the toolbar (top-right, top-left, bottom-right, bottom-left)
