@@ -26,6 +26,21 @@ module.exports = {
       // Default: 1000
       timeout: 1000,
 
+      // The toolbar configuration (optional)
+      toolbar: {
+        // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
+        // Default: false
+        enabled: false,
+
+        // The position of the toolbar (top-right, top-left, bottom-right, bottom-left)
+        // Default: 'top-right'
+        position: 'top-right',
+
+        // The toolbar opacity when the container is not hovered (value between 0 and 1)
+        // Default: 0
+        opacity: 0,
+      },
+
       // You can also pass any options supported by @panzoom/panzoom
       // See: https://github.com/timmywil/panzoom for available options
     },
@@ -57,6 +72,59 @@ module.exports = {
   // ...
 };
 ```
+
+## Toolbar Configuration
+
+You can customize the toolbar that appears when hovering over the pan and zoom elements. The toolbar provides buttons
+for zooming in, zooming out, and resetting the view.
+
+```js title="docusaurus.config.js"
+module.exports = {
+  // ...
+  themeConfig: {
+    // ...
+    zoom: {
+      // ...
+
+      // The toolbar configuration (optional)
+      toolbar: {
+        // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
+        // Default: false
+        enabled: true,
+
+        // The position of the toolbar (top-right, top-left, bottom-right, bottom-left)
+        // Default: 'top-right'
+        position: 'top-right',
+
+        // The toolbar opacity when the container is not hovered (value between 0 and 1)
+        // Default: 0
+        opacity: 0,
+      },
+    },
+  },
+  // ...
+};
+```
+
+By default, the toolbar:
+
+- is disabled
+- is positioned at the top-right corner of the pan and zoom element
+- is hidden when the pan and zoom element is not hovered
+
+Screenshot of the toolbar when the pan and zoom element is not hovered:
+
+<div style={{ border: '1px solid #ccc' }}>
+<span>![toolbar-not-hovered.png](img/toolbar-not-hovered.png)</span>
+</div>
+
+<br />
+
+Screenshot of the toolbar when hovering over a pan and zoom element:
+
+<div style={{ border: '1px solid #ccc' }}>
+<span>![toolbar-hovered.png](img/toolbar-hovered.png)</span>
+</div>
 
 ## Selectors
 

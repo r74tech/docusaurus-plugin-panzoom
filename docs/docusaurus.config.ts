@@ -128,6 +128,9 @@ const config: Config = {
       wrap: true,
       timeout: 1000,
       excludeClass: 'panzoom-exclude',
+      toolbar: {
+        enabled: true,
+      },
     },
   } satisfies Preset.ThemeConfig,
 
