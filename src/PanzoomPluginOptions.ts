@@ -67,4 +67,39 @@ export type PanZoomPluginOptions = PanzoomOptions & {
      */
     opacity?: number;
   };
+
+  /**
+   * Whether to enable zooming with the mouse wheel.
+   * If true, the user can zoom in and out using the mouse wheel.
+   *
+   * default: true
+   */
+  enableWheelZoom?: boolean;
+
+  /**
+   * Whether to enable zooming with the mouse wheel while holding the shift key.
+   * If true, the user can zoom in and out using the mouse wheel while holding the shift key.
+   *
+   * This option is independent of `enableWheelZoom`. Meaning, even if `enableWheelZoom` is false,
+   * and `enableWheelZoomWithShift` is true, the user can still zoom using shift + mouse whee.
+   * Also, `enableWheelZoom` and `enableWheelZoomWithShift` can be used together.
+   *
+   * default: false
+   */
+  enableWheelZoomWithShift?: boolean;
+
+  /**
+   * Whether to enable double-click to reset zoom.
+   * If true, double-clicking on the panzoom element will reset the zoom level.
+   *
+   * default: true
+   */
+  enableDoubleClickResetZoom?: boolean;
+
+  /**
+   * Whether to restrict zooming out beyond the original size of the element.
+   *
+   * default: false
+   */
+  restrictZoomOutBeyondOrigin?: boolean;
 };
