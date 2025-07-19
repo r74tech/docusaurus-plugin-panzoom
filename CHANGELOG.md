@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.3.0...v2.4.0) (2025-07-19)
+
+
+### Features
+
+* add options to better control the zoom ([#7](https://github.com/r74tech/docusaurus-plugin-panzoom/issues/7)) ([4dc537c](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/4dc537c8e059908cc2cae407fc78ae93de34c6dd))
+
 # [2.3.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.2.0...v2.3.0) (2025-07-17)
 
 
