@@ -16,7 +16,7 @@ const {
   excludeClass = 'panzoom-exclude',
   toolbar: { enabled = false, position = PanZoomPluginToolbarPosition.TopRight, opacity = 0 } = {},
   enableWheelZoom = true,
-  enableWheelZoonWithShift = false,
+  enableWheelZoomWithShift = false,
   enableDoubleClickResetZoom = true,
   restrictZoomOutBeyondOrigin = false,
   ...panZoomConfig
@@ -103,10 +103,10 @@ const addEventListeners = (element: HTMLElement, instance: PanzoomObject) => {
   };
 
   // Handle the wheel zoom functionality if at least one of the options is enabled
-  if (enableWheelZoom || enableWheelZoonWithShift) {
+  if (enableWheelZoom || enableWheelZoomWithShift) {
     element.addEventListener('wheel', (event) => {
       // Handle zoom with shift key
-      if (enableWheelZoonWithShift && event.shiftKey) {
+      if (enableWheelZoomWithShift && event.shiftKey) {
         handleZoomWithWheel(event);
         return;
       }

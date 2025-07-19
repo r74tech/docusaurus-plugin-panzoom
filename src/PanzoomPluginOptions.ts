@@ -81,12 +81,12 @@ export type PanZoomPluginOptions = PanzoomOptions & {
    * If true, the user can zoom in and out using the mouse wheel while holding the shift key.
    *
    * This option is independent of `enableWheelZoom`. Meaning, even if `enableWheelZoom` is false,
-   * and `enableWheelZoonWithShift` is true, the user can still zoom using shift + mouse whee.
-   * Also, `enableWheelZoom` and `enableWheelZoonWithShift` can be used together.
+   * and `enableWheelZoomWithShift` is true, the user can still zoom using shift + mouse whee.
+   * Also, `enableWheelZoom` and `enableWheelZoomWithShift` can be used together.
    *
    * default: false
    */
-  enableWheelZoonWithShift?: boolean;
+  enableWheelZoomWithShift?: boolean;
 
   /**
    * Whether to enable double-click to reset zoom.
