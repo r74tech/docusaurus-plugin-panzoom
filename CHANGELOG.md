@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.1...v2.4.2) (2026-02-08)
+
+
+### Bug Fixes
+
+* npm CLIを最新版に更新（OIDC trusted publishing対応） ([93e241b](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/93e241b8113ce187ac6ec5f4ccf196844b2ac1b5))
+
 ## [2.4.1](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.0...v2.4.1) (2026-02-08)
 
 
