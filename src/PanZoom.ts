@@ -6,6 +6,7 @@ import SvgZoomOut from './img/zoom-out';
 import SvgZoomReset from './img/zoom-reset';
 import './styles/panzoom.css';
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const config = require('@generated/docusaurus.config').default;
 const { themeConfig } = config;
 const { zoom }: { zoom: PanZoomPluginOptions } = themeConfig;

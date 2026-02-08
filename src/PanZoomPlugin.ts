@@ -9,7 +9,7 @@ import { resolve } from 'path';
  * @param options
  * @returns
  */
-export const PanZoomPlugin: PluginModule = (context, options) => {
+export const PanZoomPlugin: PluginModule = (_context, _options) => {
   return {
     name: 'docusaurus-plugin-panzoom',
     getClientModules() {
