@@ -1,3 +1,11 @@
+## [2.4.1](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.0...v2.4.1) (2026-02-08)
+
+
+### Bug Fixes
+
+* CIのNode.jsバージョンを22に更新 ([21d9a57](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/21d9a57a26716a4e07e994fbbbdb74e2044d0e08))
+* OIDC trusted publishingの設定を修正 ([31764e1](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/31764e10638d9b89715cadf173ba90f7f18d50c2))
+
 # [2.4.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.3.0...v2.4.0) (2025-07-19)
 
 
