@@ -1,6 +1,7 @@
 {
   "name": "docs",
   "version": "0.0.0",
+  "packageManager": "pnpm@11.24.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -59,11 +60,6 @@
   },
   "engines": {
     "node": ">=20.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "lodash-es": ">=4.17.23"
-    }
   },
   "lint-staged": {
     "{src,docs}/**/*.{js,jsx,ts,tsx,css,json,md}": [

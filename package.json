@@ -1,6 +1,7 @@
 {
   "name": "@r74tech/docusaurus-plugin-panzoom",
   "version": "2.4.2",
+  "packageManager": "pnpm@11.24.0",
   "description": "A plugin to enable the panzoom component on SVG and other elements",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
