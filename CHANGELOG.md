@@ -1,3 +1,10 @@
+## [2.4.3](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.2...v2.4.3) (2026-09-10)
+
+
+### Bug Fixes
+
+* **docs:** ドキュメントビルドのwebpack互換性を修正 ([2eb13b9](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/2eb13b994e2d4db3a4e48966f6f25c166349d2ae))
+
 ## [2.4.2](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.1...v2.4.2) (2026-02-08)
 
 
