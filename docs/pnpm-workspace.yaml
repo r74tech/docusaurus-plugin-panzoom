@@ -1,0 +1,9 @@
+autoInstallPeers: true
+strictPeerDependencies: false
+
+overrides:
+  lodash-es: ">=4.17.23"
+
+allowBuilds:
+  core-js: false
+  core-js-pure: false

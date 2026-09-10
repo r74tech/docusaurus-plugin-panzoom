@@ -1,0 +1,4 @@
+autoInstallPeers: true
+minimumReleaseAgeExclude:
+  - '@types/node@25.9.6'
+strictPeerDependencies: false

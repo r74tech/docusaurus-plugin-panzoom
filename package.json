@@ -1,6 +1,7 @@
 {
   "name": "@r74tech/docusaurus-plugin-panzoom",
   "version": "2.4.2",
+  "packageManager": "pnpm@11.24.0",
   "description": "A plugin to enable the panzoom component on SVG and other elements",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,9 +39,9 @@
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.1",
     "@tsconfig/docusaurus": "^2.0.9",
-    "@types/node": "^25.9.5",
-    "@typescript-eslint/eslint-plugin": "^8.68.0",
-    "@typescript-eslint/parser": "^8.68.0",
+    "@types/node": "^25.9.6",
+    "@typescript-eslint/eslint-plugin": "^8.70.0",
+    "@typescript-eslint/parser": "^8.70.0",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
@@ -51,7 +52,7 @@
     "react-dom": "^18.3.1",
     "semantic-release": "^25.0.9",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.68.0"
+    "typescript-eslint": "^8.70.0"
   },
   "release": {
     "plugins": [
