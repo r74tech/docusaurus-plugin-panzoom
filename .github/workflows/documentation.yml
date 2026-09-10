@@ -31,7 +31,7 @@ jobs:
       - name: Setup pnpm and Node.js
         uses: pnpm/setup@84cb39b217b10273981911c288cd62326dc7c6d2 # v2
         with:
-          runtime: node@24.14.0
+          runtime: node@lts
           cache: true
           cache-dependency-path: |
             pnpm-lock.yaml

@@ -6,7 +6,8 @@ I appreciate your consideration to contribute to this project! This document is 
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org) (v20 or later recommended)
+- [Node.js](https://nodejs.org) LTS (CI follows the latest LTS release)
+- pnpm 11.24.0, as declared in `package.json`
 
 ### Installation
 
@@ -20,15 +21,21 @@ I appreciate your consideration to contribute to this project! This document is 
 
     ```bash
     cd docusaurus-plugin-panzoom
-    npm install
+    pnpm install --frozen-lockfile
     ```
 
 ### Development
 
 The main scripts used during development are:
 
-- `npm run build`: Builds the TypeScript code.
-- `npm run prepublishOnly`: Runs the build script before publishing.
+- `pnpm build`: Builds the TypeScript code.
+- `pnpm lint`: Checks source code with Oxlint; `pnpm lint:fix` applies fixes.
+- `pnpm format`: Formats source code with Oxfmt; `pnpm format:check` checks without writing.
+- `pnpm typecheck`: Checks TypeScript types without emitting files.
+
+The documentation project has the same lint, format, and typecheck commands. Build
+the plugin first, then run `pnpm --dir docs install --frozen-lockfile` and the
+checks with `pnpm --dir docs <command>`. CI checks both projects on pull requests.
 
 ## How to Contribute
 
@@ -100,6 +107,20 @@ BREAKING CHANGE: The new API is not compatible with previous versions
 ## Automated Releases
 
 This project uses [semantic-release](https://github.com/semantic-release/semantic-release) for automated version management and package publishing. The release process is triggered automatically when changes are merged into the main branch.
+
+The `release` job builds the plugin, determines the version, creates a tarball,
+and updates the GitHub release without npm OIDC permissions. The separate
+`publish` job receives only that tarball and publishes it with npm trusted
+publishing and `--ignore-scripts`. It does not check out the repository, install
+dependencies, restore caches, or run package code. The runtime follows Node LTS;
+its bundled npm must be at least 11.5.1 for trusted publishing. The npm trusted publisher must
+authorize this repository's `ci.yml` workflow.
+
+If npm publishing fails after the GitHub release is created, use **Re-run failed
+jobs** on the same Actions run within 30 days to reuse its release artifact.
+Do not restart the entire workflow: semantic-release will find the existing tag
+and will not prepare that version again. Do not start a newer release until the
+failed publish has been resolved. No npm publishing occurs on pull requests.
 
 - `fix:` commits trigger a PATCH version bump (e.g., 1.0.0 → 1.0.1)
 - `feat:` commits trigger a MINOR version bump (e.g., 1.0.0 → 1.1.0)

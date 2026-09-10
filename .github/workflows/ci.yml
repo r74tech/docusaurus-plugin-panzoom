@@ -4,44 +4,127 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
-  issues: write
-  pull-requests: write
-  id-token: write
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  release:
-    name: Release
+  check:
+    name: Lint, Format, Types and Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Setup pnpm and Node.js
+        uses: pnpm/setup@84cb39b217b10273981911c288cd62326dc7c6d2 # v2
+        with:
+          runtime: node@lts
+          cache: true
+          cache-dependency-path: |
+            pnpm-lock.yaml
+            docs/pnpm-lock.yaml
+          install: false
+      - name: Check plugin
+        run: |
+          pnpm install --frozen-lockfile --ignore-scripts
+          pnpm lint
+          pnpm format:check
+          pnpm typecheck
+          pnpm build
+          npm pack --dry-run --ignore-scripts
+      - name: Check documentation
+        working-directory: docs
+        run: |
+          pnpm install --frozen-lockfile --ignore-scripts
+          pnpm lint
+          pnpm format:check
+          pnpm typecheck
+
+  release:
+    name: Prepare Release
+    needs: check
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    outputs:
+      released: ${{ steps.release.outputs.released }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: Setup pnpm and Node.js
-        uses: pnpm/setup@v2
+        uses: pnpm/setup@84cb39b217b10273981911c288cd62326dc7c6d2 # v2
         with:
-          runtime: node@22
-          cache: true
+          runtime: node@lts
+          cache: false
           install: false
-      - name: Upgrade npm for OIDC trusted publishing
-        run: |
-          npm install --global --prefix "$RUNNER_TEMP/npm" npm@11.19.1
-          echo "$RUNNER_TEMP/npm/bin" >> "$GITHUB_PATH"
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Verify release tooling
-        run: |
-          node --version
-          npm_version="$(pnpm exec npm --version)"
-          echo "npm $npm_version"
-          test "$npm_version" = "11.19.1"
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Build
         run: pnpm build
-      - name: Release
+      - name: Prepare package and GitHub release
+        id: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm exec semantic-release
+          NPM_CONFIG_IGNORE_SCRIPTS: "true"
+        run: |
+          node --input-type=module <<'JS'
+          import semanticRelease from 'semantic-release';
+          import { appendFileSync } from 'node:fs';
+          const result = await semanticRelease();
+          appendFileSync(process.env.GITHUB_OUTPUT, `released=${Boolean(result)}\n`);
+          JS
+      - name: Upload release tarball
+        if: steps.release.outputs.released == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: npm-package
+          path: release-artifacts/*.tgz
+          if-no-files-found: error
+          retention-days: 30
+
+  publish:
+    name: Publish to npm
+    needs: release
+    if: needs.release.outputs.released == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Setup trusted publishing runtime
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "lts/*"
+          check-latest: true
+      - name: Download release tarball
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: npm-package
+          path: release-artifacts
+      - name: Publish tarball with OIDC
+        working-directory: release-artifacts
+        run: |
+          node --version
+          npm_version="$(npm --version)"
+          echo "npm $npm_version"
+          test "$(printf '%s\n' 11.5.1 "$npm_version" | sort -V | head -n 1)" = "11.5.1"
+          packages=(*.tgz)
+          test "${#packages[@]}" -eq 1
+          test -f "${packages[0]}"
+          tar -xOf "${packages[0]}" package/package.json | jq -e '.name == "@r74tech/docusaurus-plugin-panzoom"'
+          npm publish "./${packages[0]}" --ignore-scripts --access public --tag latest --registry https://registry.npmjs.org

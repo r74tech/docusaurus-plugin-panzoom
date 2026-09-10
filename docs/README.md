@@ -28,7 +28,7 @@ Omitting `DOCS_BASE_URL` keeps the production base URL.
 
 ### Prerequisites
 
-- Node.js 24.14.0 (the version used by CI)
+- Node.js LTS (CI follows the latest LTS release)
 - pnpm 11.24.0
 
 ### Installation
