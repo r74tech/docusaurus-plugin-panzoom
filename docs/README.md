@@ -2,18 +2,43 @@
 
 This is the documentation website for the [@r74tech/docusaurus-plugin-panzoom](https://github.com/r74tech/docusaurus-plugin-panzoom) package. The site is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
+## Pull request previews
+
+The documentation workflow builds pull requests at
+`/docusaurus-plugin-panzoom/pr-preview/pr-<number>/` and removes the preview when
+the pull request closes. Fork and Dependabot pull requests are built but are not
+deployed, because their workflow tokens cannot write to the deployment branch.
+Production deployments preserve the `pr-preview/` directory.
+
+GitHub Pages must use **Deploy from a branch**, with **gh-pages** and **/(root)**.
+When adopting this workflow, let the first main-branch deployment create
+`gh-pages`, then switch Settings > Pages to that source. The previous GitHub
+Actions deployment source is incompatible with `rossjrw/pr-preview-action`.
+
+To build a preview locally, build the plugin and install docs dependencies first,
+then run from this directory:
+
+```sh
+DOCS_BASE_URL=/docusaurus-plugin-panzoom/pr-preview/pr-123/ pnpm build
+```
+
+Omitting `DOCS_BASE_URL` keeps the production base URL.
+
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 20.0 or higher
-- pnpm (recommended) or npm
+- Node.js 24.14.0 (the version used by CI)
+- pnpm 11.24.0
 
 ### Installation
 
 ```bash
-# Install dependencies
-pnpm install
+# From the repository root, build the locally referenced plugin first
+pnpm install --frozen-lockfile
+pnpm build
+cd docs
+pnpm install --frozen-lockfile
 ```
 
 ### Local Development
