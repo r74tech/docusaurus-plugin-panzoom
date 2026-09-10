@@ -1,3 +1,10 @@
+## [2.4.5](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.4...v2.4.5) (2026-09-10)
+
+
+### Bug Fixes
+
+* instantiate panzoom after element is wrapped in container ([#39](https://github.com/r74tech/docusaurus-plugin-panzoom/issues/39)) ([012fda2](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/012fda2f82879fb0df284163ff673d8542e1ee66))
+
 ## [2.4.4](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.3...v2.4.4) (2026-09-10)
 
 
