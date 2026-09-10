@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import MountainSvg from '@site/static/img/undraw_docusaurus_mountain.svg';
