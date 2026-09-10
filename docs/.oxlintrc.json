@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "extends": ["../.oxlintrc.json"],
+  "plugins": ["typescript", "oxc", "react"],
+  "rules": {
+    "typescript/ban-ts-comment": "off",
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error"
+  }
+}

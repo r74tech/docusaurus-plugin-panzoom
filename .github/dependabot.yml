@@ -7,6 +7,15 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 10
     versioning-strategy: increase
+    groups:
+      npm-all:
+        applies-to: version-updates
+        patterns:
+          - "*"
+      npm-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
     commit-message:
       prefix: "fix"
       prefix-development: "chore"

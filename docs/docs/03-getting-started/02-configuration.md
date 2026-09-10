@@ -75,7 +75,7 @@ module.exports = {
        * default: false
        */
       restrictZoomOutBeyondOrigin: false,
-      
+
       // You can also pass any options supported by @panzoom/panzoom
       // See: https://github.com/timmywil/panzoom for available options
     },

@@ -5,6 +5,7 @@
   "description": "A plugin to enable the panzoom component on SVG and other elements",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": ["dist", "CHANGELOG.md"],
   "keywords": [
     "Docusaurus",
     "Plugin",
@@ -20,9 +21,11 @@
     "build": "tsc && npm run copy-assets",
     "copy-assets": "mkdir -p dist/styles && cp -r src/styles/* dist/styles/",
     "prepublishOnly": "npm run build",
-    "lint": "eslint 'src/**/*.{ts,css}' --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint --fix 'src/**/*.{ts,css}'",
-    "format": "prettier --write --no-error-on-unmatched-pattern 'src/**/*.{ts,css}' --config ./.prettierrc"
+    "lint": "oxlint src --deny-warnings --report-unused-disable-directives",
+    "lint:fix": "pnpm lint --fix",
+    "format": "oxfmt src",
+    "format:check": "oxfmt --check src",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@docusaurus/utils-validation": "^3.10.2",
@@ -30,8 +33,6 @@
   },
   "devDependencies": {
     "@docusaurus/types": "^3.10.2",
-    "@eslint/compat": "^1.4.1",
-    "@eslint/js": "^9.39.5",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -39,20 +40,14 @@
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.1",
     "@tsconfig/docusaurus": "^2.0.9",
-    "@types/node": "^25.9.6",
-    "@typescript-eslint/eslint-plugin": "^8.70.0",
-    "@typescript-eslint/parser": "^8.70.0",
-    "eslint": "^9.39.5",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.6",
-    "globals": "^15.15.0",
+    "@types/node": "^26.5.0",
     "lint-staged": "^16.4.0",
-    "prettier": "^3.9.6",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "oxfmt": "0.67.0",
+    "oxlint": "1.82.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "semantic-release": "^25.0.9",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.70.0"
+    "typescript": "^5.9.3"
   },
   "release": {
     "plugins": [
@@ -65,7 +60,13 @@
           "changeLogTitle": "# Changelog"
         }
       ],
-      "@semantic-release/npm",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false,
+          "tarballDir": "release-artifacts"
+        }
+      ],
       "@semantic-release/github",
       [
         "@semantic-release/git",
@@ -99,7 +100,7 @@
   "sideEffects": false,
   "lint-staged": {
     "src/**/*.{ts,css}": [
-      "prettier --write --no-error-on-unmatched-pattern --config ./.prettierrc"
+      "oxfmt --no-error-on-unmatched-pattern"
     ]
   }
 }

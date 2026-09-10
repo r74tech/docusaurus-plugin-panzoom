@@ -6,14 +6,17 @@ This is the documentation website for the [@r74tech/docusaurus-plugin-panzoom](h
 
 ### Prerequisites
 
-- Node.js 20.0 or higher
-- pnpm (recommended) or npm
+- Node.js LTS (CI follows the latest LTS release)
+- pnpm 11.24.0
 
 ### Installation
 
 ```bash
-# Install dependencies
-pnpm install
+# From the repository root, build the locally referenced plugin first
+pnpm install --frozen-lockfile
+pnpm build
+cd docs
+pnpm install --frozen-lockfile
 ```
 
 ### Local Development

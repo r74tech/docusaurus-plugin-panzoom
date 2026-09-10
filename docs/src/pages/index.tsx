@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -25,7 +26,7 @@ function HomepageHeader() {
           <iframe
             src='https://ghbtns.com/github-btn.html?user=r74tech&amp;repo=docusaurus-plugin-panzoom&amp;type=star&amp;count=true&amp;size=large'
             frameBorder={0}
-            scrolling={0}
+            scrolling='no'
             width={120}
             height={30}
             title='GitHub Stars'
