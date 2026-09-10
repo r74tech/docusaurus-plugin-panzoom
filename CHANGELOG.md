@@ -1,3 +1,10 @@
+## [2.4.4](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.3...v2.4.4) (2026-09-10)
+
+
+### Bug Fixes
+
+* **ci:** 公開時にOIDC対応のnpmを使用 ([#38](https://github.com/r74tech/docusaurus-plugin-panzoom/issues/38)) ([e289c30](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/e289c301822c45e0777e66760008c466d75dfab0))
+
 ## [2.4.3](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.2...v2.4.3) (2026-09-10)
 
 
