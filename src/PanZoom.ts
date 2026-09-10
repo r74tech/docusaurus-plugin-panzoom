@@ -141,7 +141,6 @@ const zoomElements = (selectors: string[]) => {
   });
 
   foundElements.forEach((element) => {
-    const instance = panzoom(element as HTMLElement, { excludeClass, ...panZoomConfig });
     let container: HTMLElement;
 
     if (wrap) {
@@ -155,6 +154,7 @@ const zoomElements = (selectors: string[]) => {
       htmlElement.style.position = 'relative';
       container = htmlElement;
     }
+    const instance = panzoom(element as HTMLElement, { excludeClass, ...panZoomConfig });
 
     addEventListeners(container, instance);
 
