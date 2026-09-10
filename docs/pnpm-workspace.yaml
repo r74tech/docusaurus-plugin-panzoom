@@ -2,7 +2,9 @@ autoInstallPeers: true
 strictPeerDependencies: false
 
 overrides:
-  lodash-es: ">=4.17.23"
+  lodash-es: '>=4.17.23'
+  # webpackbar 6 is incompatible with webpack >=5.106: https://github.com/facebook/docusaurus/issues/11923
+  webpack: '5.105.0'
 
 allowBuilds:
   core-js: false
