@@ -46,3 +46,18 @@
   justify-content: center;
   align-items: center;
 }
+
+/* Keep the toolbar visible while pinned so that the pinned state is noticeable */
+.panzoom-pinned > .panzoom-toolbar {
+  opacity: 1 !important;
+}
+
+.panzoom-toolbar button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.panzoom-toolbar button[aria-pressed='true'] {
+  border-color: #888;
+  background-color: #e6e6e6;
+}
