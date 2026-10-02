@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.5...v2.5.0) (2026-10-02)
+
+
+### Features
+
+* add a pin button to the toolbar to allow text selection ([#45](https://github.com/r74tech/docusaurus-plugin-panzoom/issues/45)) ([ab1f18f](https://github.com/r74tech/docusaurus-plugin-panzoom/commit/ab1f18f3882ba3534a4794f1e97abe8e5b071a7e))
+
 ## [2.4.5](https://github.com/r74tech/docusaurus-plugin-panzoom/compare/v2.4.4...v2.4.5) (2026-09-10)
 
 
