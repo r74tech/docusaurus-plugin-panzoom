@@ -28,7 +28,7 @@ module.exports = {
 
       // The toolbar configuration (optional)
       toolbar: {
-        // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
+        // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, reset, and pin
         // Default: false
         enabled: false,
 
@@ -111,7 +111,8 @@ module.exports = {
 ## Toolbar Configuration
 
 You can customize the toolbar that appears when hovering over the pan and zoom elements. The toolbar provides buttons
-for zooming in, zooming out, and resetting the view.
+for zooming in, zooming out, resetting the view, and pinning the view to select text (see
+[User Interactions](../02-user-interactions.md#pinning-to-select-text)).
 
 ```js title="docusaurus.config.js"
 module.exports = {
@@ -123,7 +124,7 @@ module.exports = {
 
       // The toolbar configuration (optional)
       toolbar: {
-        // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, and reset
+        // Whether to enable and show a control toolbar with buttons for zoom in, zoom out, reset, and pin
         // Default: false
         enabled: true,
 
